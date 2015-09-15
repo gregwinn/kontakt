@@ -11,7 +11,7 @@ module Kontakt
   GEM_ROOT = File.expand_path("../..", __FILE__)
   AUTH_INFO = YAML.load_file("#{GEM_ROOT}/config/kontakt.yml")
   API_URL = "https://api.kontakt.io"
-  RESOURCE_DATA = {:accept => "application/vnd.com.kontakt+json;version=5", :"Api-Key" => AUTH_INFO["key"], :content_type => "application/x-www-form-urlencoded"}
+  RESOURCE_DATA = {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => AUTH_INFO["key"], :content_type => "application/x-www-form-urlencoded"}
 
   class Auth
     # => Kontakt Authentication
@@ -31,9 +31,18 @@ module Kontakt
   class Device < Auth
     # ==========================
     # => Devices / Beacons
-    def self.list(managerId = [])
-      # => managerId can be manager UUID's in an array
-      return JSON.parse(make_request('get', '/device', {params: {:managerId => managerId.join(',')}}).body)
+    def self.list(options = {})
+      # => managerId needs to be a string separated by comma for more then one
+      #  managerIds = array | managerIds.join(',') before passing to Device.list
+      return JSON.parse(make_request('get', '/device', {params: options}).body)
+    end
+
+    def self.unassigned(managerId)
+      return JSON.parse(make_request('get', '/device/unassigned/' + managerId))
+    end
+
+    def self.assign(venueId, deviceId)
+      return make_request('post', '/device/assign', {}, {:venueId => venueId, :deviceId => deviceId})
     end
 
     def self.by_id(id)
