@@ -1,8 +1,8 @@
-# Kontakt Gem
+# Kontakt Gem [IN TESTING NOT APPROVED FOR USE]
 #### For use with the Kontakt.io API only.
 
 
-__This is an unoffical gem for Kontakt.io the authors have no affiliation Kontakt.io__
+__This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
 
 
 ----
@@ -17,6 +17,16 @@ After adding the gem to your Gemfile, run `bundle install`.
 Install it as a stand alone gem
 ```
 gem install kontakt
+```
+
+#### Add the config file
+A configuration YML file is needed, that simply contains your API KEY.
+
+Add: `/config/kontakt.yml`
+
+```
+# Kontakt API KEY
+key: "000000000000000000"
 ```
 
 ----
@@ -75,12 +85,49 @@ __Example__
 ```
 Kontakt::Device.assign("xxxxxx-xxxxx-xxxxxxxx", "xxxxxx-xxxxx-xxxxxxxx")
 ```
-
-#### Device.by_id("unique_id")
+----
+#### Device.by_id("uniqueId")
 http://docs.kontakt.io/rest-api/stable/resources/#device-get-device-by-unique-id
-Find a device by unique-id (the short ID on the beacon stiker 'Y0lo')
+Find a device by uniqueId (the short ID on the beacon sticker 'Y0lo')
 
 __Example__
 ```
 Kontakt::Device.by_id("Y0lo")
+```
+----
+#### Device.update("uniqueId", "deviceType", {options})
+http://docs.kontakt.io/rest-api/stable/resources/#beacon-update-a-beacon
+Update the beacons attributes.
+
+__NOTE:__ `uniqueId` is the short ID used on the sticker NOT the UUID.
+
+__Example__
+```
+Kontakt::Device.update("Y0lo", "BEACON", {alias: "MyBeacon", minor: 836})
+```
+
+
+## Analytics
+
+#### Analytics.metrics_ranges("venue_id", "startTime", options = {endTime: Time.now.to_i, maxResults: 100})
+http://docs.kontakt.io/rest-api/stable/resources/#analytics-range-metrics
+Using a Cloud Beacon, you may view near by BLE devices.
+
+__Example__
+```
+Kontakt::Analytics.metrics_ranges("xxxxxx-xxxxx-xxxxxxxx", (Time.now - 3600).to_i, {iso8601Timestamps: true, maxResults: 10})
+```
+
+
+## Firmware
+
+#### Firmware.latest(["uniqueId"], options = {deviceType: ""})
+http://docs.kontakt.io/rest-api/stable/resources/#firmware-get-latest-firmware-information
+Get latest Firmware information: If no firmware update is available for the specified devices, then an empty JSON object will be returned.
+
+__NOTE:__ `uniqueId` is the short ID used on the sticker NOT the UUID.
+
+__Example__
+```
+Kontakt::Firmware.latest("Y0lo,Y2kf")
 ```
