@@ -48,24 +48,17 @@ module Kontakt
   class Analytics < Auth
     # ==========================
     # => Analytics
-    def self.metrics_ranges(venue_id, startTime, endTime, maxResults)
-      if endTime.empty?
-        endTime = Time.now.to_i
-      end
+    def self.metrics_ranges(venue_id, startTime, options = {endTime: Time.now.to_i, maxResults: 100})
 
-      if maxResults.empty?
-        maxResults = 100
-      end
-
-      options = {
+      request_options = {
         params: {:sourceType => "VENUE",
                 :sourceId => venue_id,
                 :iso8601Timestamps => "true",
                 :startTimestamp => startTime,
-                :endTimestamp => endTime,
-                :maxResults => maxResults}
+                :endTimestamp => options[:endTime],
+                :maxResults => options[:maxResults]}
       }
-      return make_request('get', '/analytics/metrics/ranges', options, {})
+      return JSON.parse(make_request('get', '/analytics/metrics/ranges', request_options, {}).body)
     end
 
   end
