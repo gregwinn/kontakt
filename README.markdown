@@ -50,7 +50,7 @@ Kontakt::Device.list({deviceType: "CLOUD_BEACON", managerId: "xxxxxx-xxxxx-xxxxx
 ```
 This will return all `CLOUD_BEACON` assigned to `managerId`.
 
-
+----
 #### Device.unassigned("managerId")
 http://docs.kontakt.io/rest-api/stable/resources/#device-get-devices-not-assigned-to-a-venue
 Lists all devices not assigned a venue
@@ -60,7 +60,7 @@ __Example__
 Kontakt::Device.unassigned("xxxxxx-xxxxx-xxxxxxxx")
 ```
 
-
+----
 #### Device.assign("venueId", "deviceId")
 http://docs.kontakt.io/rest-api/stable/resources/#device-assign-devices-to-a-venue
 Assign a device to a venue.
