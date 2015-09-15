@@ -67,9 +67,24 @@ module Kontakt
                 :endTimestamp => options[:endTime],
                 :maxResults => options[:maxResults]}
       }
-      return JSON.parse(make_request('get', '/analytics/metrics/ranges', request_options, {}).body)
+      return JSON.parse(make_request('get', '/analytics/metrics/ranges', request_options).body)
     end
 
+  end
+
+  class Firmware < Auth
+    # ==========================
+    # => Firmware
+
+    def self.latest(uniqueId, options = {deviceType: ''})
+      request_options = {
+        params: {
+          :uniqueId => uniqueId,
+          :deviceType => options[:deviceType]
+        }
+      }
+      return JSON.parse(make_request('get', '/firmware/last', request_options))
+    end
   end
 
 end
