@@ -69,7 +69,18 @@ Kontakt::Device.unassigned("xxxxxx-xxxxx-xxxxxxxx")
 http://docs.kontakt.io/rest-api/stable/resources/#device-assign-devices-to-a-venue
 Assign a device to a venue.
 
+__NOTE:__ `deviceId` is the UUID and NOT the short ID provided by Kontakt
+
 __Example__
 ```
 Kontakt::Device.assign("xxxxxx-xxxxx-xxxxxxxx", "xxxxxx-xxxxx-xxxxxxxx")
+```
+
+#### Device.by_id("unique_id")
+http://docs.kontakt.io/rest-api/stable/resources/#device-get-device-by-unique-id
+Find a device by unique-id (the short ID on the beacon stiker 'Y0lo')
+
+__Example__
+```
+Kontakt::Device.by_id("Y0lo")
 ```
