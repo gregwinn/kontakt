@@ -4,7 +4,7 @@
 
 __This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
 
-[![Gem Version](https://badge.fury.io/rb/kontakt.svg)](http://badge.fury.io/rb/kontakt)
+[![Gem Version](https://badge.fury.io/rb/kontakt.svg)](http://badge.fury.io/rb/kontakt) [![Build Status](https://travis-ci.org/gregwinn/kontakt.svg)](https://travis-ci.org/gregwinn/kontakt)
 ----
 
 ## Install Kontakt gem
