@@ -41,8 +41,12 @@ module Kontakt
       return JSON.parse(make_request('get', '/device/unassigned/' + managerId))
     end
 
-    def self.assign(venueId, deviceId)
+    def self.assign_venue(venueId, deviceId)
       return make_request('post', '/device/assign', {}, {:venueId => venueId, :deviceId => deviceId})
+    end
+
+    def self.assign_manager(managerId, deviceId)
+      return make_request('post', '/device/assign', {}, {:deviceId => deviceId, :managerId => managerId})
     end
 
     def self.by_id(id)

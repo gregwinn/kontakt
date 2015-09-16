@@ -75,7 +75,7 @@ Kontakt::Device.unassigned("xxxxxx-xxxxx-xxxxxxxx")
 ```
 
 ----
-#### Device.assign("venueId", "deviceId")
+#### Device.assign_venue("venueId", "deviceId")
 http://docs.kontakt.io/rest-api/stable/resources/#device-assign-devices-to-a-venue
 Assign a device to a venue.
 
@@ -83,8 +83,23 @@ __NOTE:__ `deviceId` is the UUID and NOT the short ID provided by Kontakt
 
 __Example__
 ```
-Kontakt::Device.assign("xxxxxx-xxxxx-xxxxxxxx", "xxxxxx-xxxxx-xxxxxxxx")
+Kontakt::Device.assign_venue("xxxxxx-xxxxx-xxxxxxxx", "xxxxxx-xxxxx-xxxxxxxx")
 ```
+
+----
+#### Device.assign_manager("managerId", "deviceId")
+http://docs.kontakt.io/rest-api/stable/resources/#device-assign-devices-to-a-manager
+Assign device(s) to a manager.
+
+__NOTE:__ `deviceId` is the UUID and NOT the short ID provided by Kontakt
+
+__NOTE 2:__ `deviceId` can contain more then one ID, it should be a comma separated `string`
+
+__Example__
+```
+Kontakt::Device.assign_manager("xxxxxx-xxxxx-xxxxxxxx", "xxxxxx-xxxxx-xxxxxxxx,xxxxxx-xxxxx-xxxxxxxx")
+```
+
 ----
 #### Device.by_id("uniqueId")
 http://docs.kontakt.io/rest-api/stable/resources/#device-get-device-by-unique-id
