@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Greg Winn"]
   s.email       = 'winn.greg@gmail.com'
   s.files       = ["lib/kontakt.rb"]
-  s.homepage    = 'http://winn.ws'
+  s.homepage    = 'https://github.com/gregwinn/kontakt'
   s.license     = 'MIT'
 end
