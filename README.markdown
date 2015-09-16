@@ -4,13 +4,13 @@
 
 __This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
 
-
+[![Gem Version](https://badge.fury.io/rb/kontakt.svg)](http://badge.fury.io/rb/kontakt)
 ----
 
 ## Install Kontakt gem
 Add the following to your Gemfile
 ```
-gem "kontakt"
+gem "kontakt", "~> 0.1.0"
 ```
 After adding the gem to your Gemfile, run `bundle install`.
 
