@@ -1,5 +1,5 @@
-# Kontakt Gem [IN TESTING NOT APPROVED FOR USE]
-#### For use with the Kontakt.io API only.
+# Kontakt Gem [In development NOT APPROVED FOR PRODUCTION]
+#### For use with the Kontakt.io API V6 only.
 
 
 __This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
@@ -40,6 +40,15 @@ Displays all Venues.
 __Example__
 ```
 Kontakt::Venue.list
+```
+
+#### Venue.create("name", "description", {options})
+http://docs.kontakt.io/rest-api/stable/resources/#venue-create-new-venue
+Allows you to create a new Venue.
+
+__Example__
+```
+Kontakt::Venue.create("Venue Name", "A small place", {lat: 52, lng: -118})
 ```
 
 ## Device

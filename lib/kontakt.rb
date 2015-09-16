@@ -26,6 +26,10 @@ module Kontakt
     def self.list
       return JSON.parse(make_request('get', '/venue').body)
     end
+
+    def self.create(name, description, options = {})
+      return JSON.parse(make_request('post', '/venue/create', {}, {:name => name, :description => description}.merge(options)).body)
+    end
   end
 
   class Device < Auth
