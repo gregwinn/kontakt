@@ -29,6 +29,12 @@ Add: `/config/kontakt.yml`
 key: "000000000000000000"
 ```
 
+
+__Add an Environment Variable__
+```
+export KONTAKT_CONFIG_PATH=config/kontakt.yml
+```
+
 ----
 
 ## Venue
