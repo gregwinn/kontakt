@@ -57,6 +57,10 @@ module Kontakt
       return JSON.parse(make_request('get', '/device/' + id).body)
     end
 
+    def self.status(id)
+      return JSON.parse(make_request('get', '/device/' + id + '/status').body)
+    end
+
     def self.update(id, type, options = {})
       return make_request('post', '/device/update', {}, {:uniqueId => id, :deviceType => type}.merge(options))
     end

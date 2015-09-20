@@ -124,6 +124,17 @@ __Example__
 ```
 Kontakt::Device.by_id("Y0lo")
 ```
+
+----
+#### Device.status("uniqueId")
+http://docs.kontakt.io/rest-api/early-access/resources/#device-get-device-status
+Status is only updated once a Cloud beacon has seen the device, and has reported it back to Kontakt.
+
+__Example__
+```
+Kontakt::Device.status("Y0lo")
+```
+
 ----
 #### Device.update("uniqueId", "deviceType", {options})
 http://docs.kontakt.io/rest-api/stable/resources/#beacon-update-a-beacon
