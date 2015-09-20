@@ -41,8 +41,8 @@ module Kontakt
       return JSON.parse(make_request('get', '/device', {params: options}).body)
     end
 
-    def self.unassigned(managerId)
-      return JSON.parse(make_request('get', '/device/unassigned/' + managerId))
+    def self.unassigned(managerId, options = {})
+      return JSON.parse(make_request('get', '/device/unassigned/' + managerId, {params: options}).body)
     end
 
     def self.assign_venue(venueId, deviceId)
@@ -55,6 +55,10 @@ module Kontakt
 
     def self.by_id(id)
       return JSON.parse(make_request('get', '/device/' + id).body)
+    end
+
+    def self.status(id)
+      return JSON.parse(make_request('get', '/device/' + id + '/status').body)
     end
 
     def self.update(id, type, options = {})

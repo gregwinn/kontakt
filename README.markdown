@@ -4,7 +4,7 @@
 
 __This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
 
-[![Gem Version](https://badge.fury.io/rb/kontakt.svg)](http://badge.fury.io/rb/kontakt)
+[![Gem Version](https://badge.fury.io/rb/kontakt.svg)](http://badge.fury.io/rb/kontakt) [![Build Status](https://travis-ci.org/gregwinn/kontakt.svg)](https://travis-ci.org/gregwinn/kontakt)
 ----
 
 ## Install Kontakt gem
@@ -27,6 +27,12 @@ Add: `/config/kontakt.yml`
 ```
 # Kontakt API KEY
 key: "000000000000000000"
+```
+
+
+__Add an Environment Variable__
+```
+export KONTAKT_CONFIG_PATH=config/kontakt.yml
 ```
 
 ----
@@ -118,6 +124,17 @@ __Example__
 ```
 Kontakt::Device.by_id("Y0lo")
 ```
+
+----
+#### Device.status("uniqueId")
+http://docs.kontakt.io/rest-api/early-access/resources/#device-get-device-status
+Status is only updated once a Cloud beacon has seen the device, and has reported it back to Kontakt.
+
+__Example__
+```
+Kontakt::Device.status("Y0lo")
+```
+
 ----
 #### Device.update("uniqueId", "deviceType", {options})
 http://docs.kontakt.io/rest-api/stable/resources/#beacon-update-a-beacon

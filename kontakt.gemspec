@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'kontakt'
-  s.version     = '0.1.0'
+  s.version     = '0.1.2'
   s.date        = '2015-09-10'
   s.summary     = "Kontakt"
   s.description = "For use with Kontakt.io API"
