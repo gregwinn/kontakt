@@ -56,7 +56,26 @@ __Example__
 ```
 Kontakt::Venue.create("Venue Name", "A small place", {lat: 52, lng: -118})
 ```
+----
+## Config
+When a config is created, it is not automatically synchronized with the target device until it is pushed from a smartphone (running our mobile app) or Cloud Beacon within range of the device. The config will show as pending in both the API and in your Web Panel view. Once the device comes into range and has been synchronized, the pending configuration will be deleted.
 
+Cloud Beacons will update automatically when the device connects to the kontakt.io cloud (wifiScanInterval).
+
+Beacons in range of a Cloud Beacon will be updated when the Cloud Beacon connects to the cloud. They can also be updated when a smartphone running the kontakt.io mobile app comes into range of the Beacon.
+
+If a pending config exists for a device, a further create operation will overwrite the pending config.
+
+#### Config.pending("deviceType")
+http://docs.kontakt.io/rest-api/early-access/resources/#config-get-pending-configs
+List all pending configurations for Devices
+
+__Example__
+```
+Kontakt::Config.pending("cloud_beacon")
+```
+
+----
 ## Device
 This includes regular beacons along with cloud beacons
 

@@ -32,6 +32,14 @@ module Kontakt
     end
   end
 
+  class Config < Auth
+
+    def self.pending(deviceType)
+      return JSON.parse(make_request('get', '/config', {params: {:deviceType => deviceType}}).body)
+    end
+
+  end
+
   class Device < Auth
     # ==========================
     # => Devices / Beacons
