@@ -10,7 +10,7 @@ __This is an unofficial gem for Kontakt.io the authors have no affiliation Konta
 ## Install Kontakt gem
 Add the following to your Gemfile
 ```
-gem "kontakt", "~> 0.1.3"
+gem "kontakt", "~> 0.1.4"
 ```
 After adding the gem to your Gemfile, run `bundle install`.
 
