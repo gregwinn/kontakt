@@ -38,6 +38,14 @@ module Kontakt
       return JSON.parse(make_request('get', '/config', {params: {:deviceType => deviceType}}).body)
     end
 
+    def self.pending_by_id(uniqueId)
+      return JSON.parse(make_request('get', '/config/' + uniqueId).body)
+    end
+
+    def self.create(uniqueId, deviceType, options = {})
+      return JSON.parse(make_request('post', '/config/create', {}, {:uniqueId => uniqueId, :deviceType => deviceType}.merge(options)).body)
+    end
+
   end
 
   class Device < Auth

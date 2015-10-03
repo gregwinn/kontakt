@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'kontakt'
-  s.version     = '0.1.4'
-  s.date        = '2015-09-24'
+  s.version     = '0.1.5'
+  s.date        = '2015-10-02'
   s.summary     = "Kontakt"
   s.description = "For use with Kontakt.io API (iBeacon / EddyStone) Beacons, and Cloud Beacons"
   s.authors     = ["Greg Winn"]
