@@ -8,10 +8,33 @@ require 'rest-client'
 require 'yaml'
 
 module Kontakt
-  GEM_ROOT = File.expand_path("../..", __FILE__)
-  AUTH_INFO = YAML.load_file("#{GEM_ROOT}/config/kontakt.yml")
   API_URL = "https://api.kontakt.io"
-  RESOURCE_DATA = {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => AUTH_INFO["key"], :content_type => "application/x-www-form-urlencoded"}
+
+
+  class Configuration
+	    attr_accessor :key
+	    def initialize
+	      self.key 		= nil
+	    end
+	end
+
+	def self.configuration
+	  @configuration ||=  Configuration.new
+	end
+
+	def self.configure
+	  yield(configuration) if block_given?
+	end
+
+	class << self
+		attr_accessor :key
+		def key
+	    	raise "The API key is needed" unless @key
+	    	@key
+	    end
+	end
+
+  RESOURCE_DATA = {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => Kontakt.configuration.key, :content_type => "application/x-www-form-urlencoded"}
 
   class Auth
     # => Kontakt Authentication

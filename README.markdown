@@ -1,4 +1,4 @@
-# Kontakt Gem [In development NOT APPROVED FOR PRODUCTION]
+# Kontakt Gem
 #### For use with the Kontakt.io API V6 only.
 
 
@@ -10,7 +10,7 @@ __This is an unofficial gem for Kontakt.io the authors have no affiliation Konta
 ## Install Kontakt gem
 Add the following to your Gemfile
 ```
-gem "kontakt", "~> 0.1.4"
+gem "kontakt", "~> 1.0.0"
 ```
 After adding the gem to your Gemfile, run `bundle install`.
 
@@ -22,17 +22,12 @@ gem install kontakt
 #### Add the config file
 A configuration YML file is needed, that simply contains your API KEY.
 
-Add: `/config/kontakt.yml`
+Add: `/config/initializers/kontakt.rb`
 
 ```
-# Kontakt API KEY
-key: "000000000000000000"
-```
-
-
-__Add an Environment Variable__
-```
-export KONTAKT_CONFIG_PATH=config/kontakt.yml
+Kontakt.configure do |config|
+  config.key = "abc1234abc"
+end
 ```
 
 ----
