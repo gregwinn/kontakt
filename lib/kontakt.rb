@@ -31,15 +31,17 @@ module Kontakt
 		def key
 	    	raise "The API key is needed" unless @key
 	    	@key
-	    end
+	  end
 	end
 
-  RESOURCE_DATA = {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => Kontakt.configuration.key, :content_type => "application/x-www-form-urlencoded"}
+  def self.resource_data
+    return {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => Kontakt.configuration.key, :content_type => "application/x-www-form-urlencoded"}
+  end
 
-  class Auth
+  class Auth < Configuration
     # => Kontakt Authentication
     def self.make_request(method, path, options = {}, payload = {})
-      RestClient::Request.execute(method: method.to_sym, url: API_URL + path, payload: payload, headers: options.merge(RESOURCE_DATA))
+      RestClient::Request.execute(method: method.to_sym, url: API_URL + path, payload: payload, headers: options.merge(Kontakt.resource_data), verify_ssl: false)
     end
   end
 
