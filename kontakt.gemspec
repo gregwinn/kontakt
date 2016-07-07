@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/kontakt.rb"]
   s.homepage    = 'https://github.com/gregwinn/kontakt'
   s.license     = 'MIT'
+
+  s.add_runtime_dependency 'rest-client', '~> 2.0', '>= 2.0.0'
 end
