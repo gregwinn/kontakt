@@ -1,5 +1,5 @@
-# Kontakt Gem
-#### For use with the Kontakt.io API V6 only.
+#### Kontakt Gem
+#### For use with the Kontakt.io API V8 only.
 
 
 __This is an unofficial gem for Kontakt.io the authors have no affiliation Kontakt.io__
@@ -26,7 +26,7 @@ Add: `/config/initializers/kontakt.rb`
 
 ```
 Kontakt.configure do |config|
-  config.key = "abc1234abc"
+  config.key = 'abc1234abc'
 end
 ```
 
