@@ -10,7 +10,6 @@ require 'yaml'
 module Kontakt
   API_URL = "https://api.kontakt.io"
 
-
   class Configuration
 	    attr_accessor :key
 	    def initialize
@@ -104,6 +103,12 @@ module Kontakt
 
     def self.update(id, type, options = {})
       return make_request('post', '/device/update', {}, {:uniqueId => id, :deviceType => type}.merge(options))
+    end
+    
+    def self.by_query(query)
+      # for the query features take a look at:
+      # http://developer.kontakt.io/rest-api/stable/overview/#accessing-the-rest-api-filtering
+      return JSON.parse(make_request('get', '/device?q=' + query).body)
     end
   end
 
