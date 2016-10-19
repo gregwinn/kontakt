@@ -35,7 +35,7 @@ module Kontakt
 	end
 
   def self.resource_data
-    return {:accept => "application/vnd.com.kontakt+json;version=6", :"Api-Key" => Kontakt.configuration.key, :content_type => "application/x-www-form-urlencoded"}
+    return {:accept => "application/vnd.com.kontakt+json;version=8", :"Api-Key" => Kontakt.configuration.key, :content_type => "application/x-www-form-urlencoded"}
   end
 
   class Auth < Configuration
